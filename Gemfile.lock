@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    config (5.5.1)
+      deep_merge (~> 1.2, >= 1.2.1)
+    deep_merge (1.2.2)
+    filewatcher (2.1.0)
+      module_methods (~> 0.1.0)
+    module_methods (0.1.0)
+    rainbow (3.1.1)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  config
+  filewatcher
+  rainbow
+
+BUNDLED WITH
+   2.4.15

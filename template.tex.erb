@@ -1,0 +1,166 @@
+\documentclass[letterpaper,<%= Settings.style.font_size %>pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}
+{\vspace{<%= Settings.style.paragraph_spacing %>pt}\scshape\raggedright\large}
+{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{<%= Settings.style.bullet_spacing %>pt}}
+  }
+}
+
+\newcommand{\resumeSummary}[1]{
+  \item\small{
+    {#1 \vspace{<%= Settings.style.item_spacing - 4 %>pt}}
+  }
+}
+
+\newcommand{\resumeSkills}[1]{
+  \item\small{
+    \textit{Tech Stack:}
+    \textit{#1}
+    \vspace{<%= Settings.style.item_spacing - 4 %>pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \vspace{-10pt}\\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{<%= Settings.style.item_spacing - 7 %>pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeJobEnd}{\vspace{<%= Settings.style.job_spacing + 4 %>pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    \textbf{\<%= Settings.style.title_style %> \scshape <%= @title %>} \\ \vspace{1pt}
+    \small 
+    <%= @info.map { |info| link_to(info['text'], info['href']) }.join(" $|$ ") %>
+    \\ \vspace{5pt} \small \textit{<%= @about %>}
+\end{center}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{<%= @technical['title'] %>}
+    \begin{itemize}[leftmargin=0.15in, label={}]
+        \small{\item{
+            <% @technical['sections'].each do |section| -%>
+                \textbf{<%= section['title'] %>} {: <%= section['items'].map(&:latex_escape).join(", ") %>}{\vspace{<%= Settings.style.bullet_spacing + 2 %>pt}} \\
+            <% end -%>
+        }}\vspace{-2pt}
+    \end{itemize}
+
+%------------EDUCATION----------------
+\section{Education}
+<% @education['sections'].each do |section| -%>
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {<%= section['school'] %>} {<%= section['period'] %>}
+    {<%= section['major'] %>} {<%= section['degree'] %>}
+  \resumeSubHeadingListEnd
+<% end -%>
+
+%-----------EXPERIENCES-----------------
+<% @experiences.each do |experience| %>
+  \section{<%= experience['title'] %>}
+    \resumeSubHeadingListStart
+    <% experience['sections'].each do |section| -%>
+      \resumeSubheading
+        {<%= section['title'] %>} {<%= section['period'] %>}
+        {<%= section['link'] ? link_to(section['subtitle'], section['link']) : section['subtitle'] %>} {<%= section['location'] %>}
+      <% if section['skills'] -%>
+      \resumeSkills {<%=section['skills'].map(&:latex_escape).join(", ")%>}
+      <% end -%>
+      <% if section['summary'] -%>
+      \resumeSummary {<%= section['summary'].latex_escape.latex_bold %>}
+      <% end -%>
+      <% if section['items'] -%>
+        \resumeItemListStart
+        <% section['items'].each do |item| -%>\resumeItem {<%=item.latex_escape.latex_bold%>}<% end -%>
+        \resumeItemListEnd
+      <% end -%>
+      \resumeJobEnd
+    <% end -%>
+    \resumeSubHeadingListEnd
+<% end -%>
+
+\end{document}

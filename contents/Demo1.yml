@@ -1,0 +1,136 @@
+title: Demo Person
+info:
+  - text: Vancouver, BC
+  - text: demo.person@example.com
+    href: "mailto:demo.person@example.com"
+  - text: linkedin.com/in/demo-person
+    href: https://www.linkedin.com/in/demo-person/
+  - text: github.com/demo-person
+    href: https://github.com/demo-person
+  - text: demo.example.com
+    href: https://demo.example.com
+about: Example software developer showcasing resume template capabilities # Optional
+technical:
+  title: Technical Skills
+  sections:
+    - title: Core Skills
+      items:
+        - Python
+        - JavaScript
+        - TypeScript
+        - Go
+        - AWS
+        - Docker
+        - Kubernetes
+        - React
+        - Node.js
+        - MongoDB
+        - Redis
+        - GraphQL
+        - REST
+        - CI/CD
+        - Terraform
+        - Azure
+        - Git
+        - PostgreSQL
+        - ElasticSearch
+        - Kafka
+    - title: Working Knowledge
+      items:
+        - Vue.js
+        - Angular
+        - PHP
+        - Ruby
+        - C++
+        - Unity
+        - WebGL
+        - Flutter
+        - Firebase
+education:
+  title: Education
+  sections:
+    - school: University of Waterloo
+      degree: Master of Computer Science
+      major: Artificial Intelligence
+      period: Sep. 2015 - Apr. 2017
+    - school: University of Toronto
+      degree: Bachelor of Science
+      major: Computer Science
+      period: Sep. 2011 - May 2015
+
+# You can add as many categories of experiences as you like.
+experiences:
+  - title: Projects # Categories of experiences can be named differently.
+    sections:
+      # In each section, you can add as many experiences as you like.
+      - title: Lead Developer
+        subtitle: Open Source | CloudScale Framework
+        period: Jan. 2024 - Present
+        summary: Created an open-source framework for automated cloud infrastructure scaling with 2000+ GitHub stars
+      - title: Technical Architect
+        subtitle: Personal Project | AI Music Generator
+        link: https://aimusic.dev/showcase
+        period: Jun. 2023
+        summary: Developed an AI-powered music generation tool using machine learning models and web audio API
+
+  - title: Work Experience
+    sections:
+      - title: Senior Cloud Architect (from Cloud Engineer)
+        subtitle: TechCloud Solutions
+        link: https://techcloud.io/
+        period: Mar. 2020 - Present
+        location: Toronto, Canada
+        summary: Lead architect for cloud infrastructure serving **500K+ users**, managing a team of 8 engineers and **$2M** annual cloud budget
+        skills:
+          - AWS
+          - Kubernetes
+          - Terraform
+          - Python
+          - Go
+          - Docker
+          - CI/CD
+          - Monitoring
+          - Team Leadership
+        items:
+          - Designed and implemented microservices architecture supporting **200K** concurrent users
+          - Reduced cloud infrastructure costs by **40%** through optimization and automation
+          - Led migration from monolithic to microservices architecture, improving system reliability by **99.99%**
+          - Implemented zero-downtime deployment strategy across all services
+      - title: Full Stack Developer
+        subtitle: DataViz Inc
+        link: https://dataviz.co/
+        period: Jun. 2017 - Feb. 2020
+        location: Vancouver, Canada
+        summary: Full-stack developer for data visualization platform serving **50K+ daily active users**
+        skills:
+          - React
+          - Node.js
+          - PostgreSQL
+          - D3.js
+          - Python
+          - AWS
+        items:
+          - Built real-time data visualization dashboard used by Fortune 500 companies
+          - Improved application performance by **60%** through code optimization
+          - Developed custom charting library used across multiple enterprise products
+      - title: Software Engineer
+        subtitle: StartupTech
+        link: https://startuptech.dev/
+        period: Jul. 2015 - May 2017
+        location: Montreal, Canada
+        summary: Developed core features for AI-powered recommendation engine
+        skills:
+          - Python
+          - TensorFlow
+          - SQL
+          - REST APIs
+          - Machine Learning
+
+  - title: Involvement
+    sections:
+      - title: Conference Speaker
+        subtitle: 2023 CloudTech Summit
+        link: https://cloudtech.summit/2023
+      - title: Technical Writer
+        subtitle: Medium Technology Publication
+        link: https://medium.com/tech-insights

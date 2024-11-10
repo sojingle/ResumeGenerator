@@ -1,0 +1,9 @@
+style:
+  title_style: Huge
+  font_size: 11
+  paragraph_spacing: 0
+  job_spacing: 6
+  item_spacing: 3
+  bullet_spacing: 2
+function:
+  show_highlight: false
