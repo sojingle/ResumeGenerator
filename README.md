@@ -2,7 +2,7 @@
 
 A Ruby script that generates professional resumes in PDF format from YAML content using LaTeX templates. Features multiple styling configurations and live reload capabilities.
 
-![Demo Screenshot](Demo.png)
+<img src="Demo.png" alt="Demo Screenshot" width="800"/>
 
 ## Features
 
