@@ -23,7 +23,7 @@ def ensure_output_directories(content_name)
   tex_dir = File.join(output_dir, TEX_DIR_NAME)
   pdf_dir = File.join(output_dir, PDF_DIR_NAME)
 
-  [OUTPUT_DIR, output_dir, tex_dir, pdf_dir].each do |dir|
+  [BUILD_DIR, OUTPUT_DIR, output_dir, tex_dir, pdf_dir].each do |dir|
     Dir.mkdir(dir) unless Dir.exist?(dir)
   end
 
