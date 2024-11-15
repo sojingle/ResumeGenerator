@@ -15,6 +15,7 @@ A Ruby script that generates professional resumes in PDF format from YAML conten
 
 ## Prerequisites
 
+- MacOS (tested)
 - Ruby
 - MiKTeX (LaTeX distribution)
   - Download from: https://miktex.org/download
@@ -24,10 +25,40 @@ A Ruby script that generates professional resumes in PDF format from YAML conten
 
 1. Clone the repository
 
-2. Install Ruby dependencies:
+2. Install Ruby with RVM (suggested):
+https://rvm.io/rvm/install
+```bash
+\curl -sSL https://get.rvm.io | bash
+
+source ~/.rvm/scripts/rvm
+
+rvm install 3.1 --default
+
+gem install bundler
+```
+
+3. Install Ruby and dependencies **in the project directory**:
 ```bash
 bundle install
 ```
+
+4. Install MiKTeX:
+Download and install from: https://miktex.org/download
+Suggest install as admin and select "Install missing packages on-the-fly"
+
+### Troubleshooting
+if you encounter the following error when running the `generate.rb` or `watcher.rb` script:
+
+```
+ERROR pdflatex - /usr/local/bin/miktex did not succeed; exitCode: 1
+```
+
+You should check the MiKTeX Console:
+
+1. make sure MiKTeX is on Admin mode.
+2. update to standard Tex installation.
+
+Then try to run `generate.rb`, it may prompt you to install some missing packages, just click install and it should work.
 
 ## Usage
 
